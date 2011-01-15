@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<title>Geocoding</title>
+	<link href="media/styles/style.css" rel="stylesheet" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript" src="media/scripts/geocoder.js"></script>
+</head>
+<body>
+<div id="locate_panel">
+	<form method="post">
+		<div id="left_column">
+			<input type="text" name="input" id="address" value="Address" />
+			<input type="submit" value="Geocode!" id="geocode" />
+		</div>
+		<div id="right_column">
+			<label for="latitude">Latitude:</label> <input type="text" name="latitude" readonly="readonly" value="" id="latitude" /><br />
+			<label for="longitude">Longitude:</label> <input type="text" name="longitude" readonly="readonly" value="" id="longitude" />
+		</div>
+	</form>
+</div>
+<div id="map_canvas"></div>
+</body>
+</html>

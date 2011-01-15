@@ -1,0 +1,83 @@
+html {
+	height: 100%
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, sans-serif;
+	color: #fff;
+	background: #37403c url(../images/locate_panel_background.jpg) repeat-x center top;
+}
+
+#locate_panel {
+	height: 100px;
+	margin: 0 auto;
+	width: 960px;
+}
+
+#left_column {
+	float: left;
+	width: 670px;
+	text-align: right;
+	padding: 20px 20px 0 0;
+}
+
+#right_column {
+	float: right;
+	width: 270px;
+	padding-top: 20px;
+}
+
+label {
+	display: block;
+	width: 100px;
+	float: left;
+}
+
+input {
+	outline: none;
+	background-color: #476871;
+	border: 1px solid #365760;
+	color: #fff;
+	border-radius: 5px;
+	padding: 3px;
+	text-shadow: 2px 2px 1px #385259;
+}
+
+#address {
+	padding: 10px;
+	font-size: 120%;
+	width: 70%;
+	color: #aaa;
+	height: 30px;
+	border-radius: 10px;
+}
+
+#geocode {
+	cursor: pointer;
+	padding: 10px;
+	font-size: 120%;
+	background-color: #476871;
+	border: 5px solid #365760;
+	border-radius: 10px;
+	width: 20%;
+	color: #fff;
+	height: 55px;
+}
+
+#geocode:hover {
+	background-color: #365760;
+	border: 5px solid #476871;
+	border-radius: 10px;
+	color: #fff;
+}
+
+#latitude, #longitude {
+	cursor: text;
+}
+
+#map_canvas {
+	height: 100%;
+}
