@@ -41,6 +41,8 @@ input {
 	background-color: #476871;
 	border: 1px solid #365760;
 	color: #fff;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	padding: 3px;
 	text-shadow: 2px 2px 1px #385259;
@@ -52,30 +54,113 @@ input {
 	width: 70%;
 	color: #aaa;
 	height: 30px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
 	border-radius: 10px;
 }
 
-#geocode {
+#search {
 	cursor: pointer;
 	padding: 10px;
 	font-size: 120%;
 	background-color: #476871;
 	border: 5px solid #365760;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
 	border-radius: 10px;
 	width: 20%;
 	color: #fff;
 	height: 55px;
 }
 
-#geocode:hover {
+#search:hover {
 	background-color: #365760;
 	border: 5px solid #476871;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
 	border-radius: 10px;
 	color: #fff;
 }
 
 #latitude, #longitude {
 	cursor: text;
+}
+
+#toggle_info {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	background: url(../images/info.png);
+	width: 25px;
+	height: 25px;
+	opacity: 0.2;
+	cursor: pointer;
+	text-indent: -99999px;
+}
+
+#toggle_info:hover {
+	opacity: 0.5;
+}
+
+#toggle_info:active {
+	opacity: 0.7;
+}
+
+#info_panel {
+	display: none;
+	position: absolute;
+	right: 30px;
+	top: 30px;
+	background: #476871;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	padding: 10px 20px;
+	width: 350px;
+	font-size: 75%;
+	line-height: 18px;
+	color: #fff;
+	-webkit-box-shadow: 0 0 15px #000;
+	-moz-box-shadow: 0 0 15px #000;
+	box-shadow: 0 0 15px #000;
+	z-index: 99999;
+}
+
+#info_panel h2 {
+	font-size: 150%;
+	font-weight: 600;
+	margin: 3px 0 10px 0;
+	text-shadow: 1px 1px 1px #385259;
+	display: inline;
+}
+
+#info_panel span {
+	font-size: 120%;
+	font-weight: 400;
+	margin: 3px 0 10px 0;
+	text-shadow: 1px 1px 1px #385259;
+}
+
+#info_panel p {
+	margin: 8px 0;
+}
+
+#info_panel .footer a {
+	color: #fff;
+	text-decoration: none;
+	border-bottom: 1px dotted #fff;
+}
+
+#info_panel .footer a:hover {
+	color: #363d42;
+	border-bottom: 1px dotted #363d42;
+}
+
+#info_panel hr {
+	margin: 10px -20px;
+	border: 0;
+	border-top: solid 1px #50818f;
+	border-bottom: 1px solid #365760;
 }
 
 #map_canvas {
