@@ -23,15 +23,26 @@ var Geocoder = {
         markers: []
     },
 
+	/**
+	 * Set up the Geocoder
+	 */
 	init: function() {
 		var Geocoder = this;
 
 		Geocoder.settings.options.center = this.settings.latlng;
 		Geocoder.settings.map = new google.maps.Map(document.getElementById("map_canvas"), Geocoder.settings.options);
 
+		// Make the map fit the screen
 		$("#map_canvas").height($("body").height() - $("#locate_panel").height());
+		$(window).resize(function() {
+			$("#map_canvas").height($("body").height() - $("#locate_panel").height());
+		});
+
+		// Set the initial latitude and latitude field values
 		$("#latitude").val(Geocoder.settings.latlng.lat());
 		$("#longitude").val(Geocoder.settings.latlng.lng());
+
+		// Format the address field according to it's focus state
 		$("#address").focus(function() {
 			var address = $.trim($(this).val());
 			if (address == "Address") {
@@ -46,16 +57,15 @@ var Geocoder = {
 			}
 		});
 
+		// Select the contents of the longitude and latitude fields on click
 		$("#latitude, #longitude").click(function() {
 			$(this).select();
 		});
 
-		$(window).resize(function() {
-			$("#map_canvas").height($("body").height() - $("#locate_panel").height());
-		});
-
+		// Attempt to geolocate the address provided
 		$("form").submit(function() {
 
+			// Validate the address field
 			var address = $.trim($("#address").val());
 			if (address == "" || address == "Address")
 			{
@@ -63,13 +73,16 @@ var Geocoder = {
 				return false;
 			}
 
+			// Initialize the Google geocoder
 			var theGeocoder = new google.maps.Geocoder();
 
+			// Set up the geocoder request
 			var geocoderRequest = {
 				address: $("#address").val(),
 				bounds: Geocoder.settings.map.getBounds()
 			};
 
+			// Send the geocoder request
 			theGeocoder.geocode(geocoderRequest, function(results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
 
@@ -92,6 +105,7 @@ var Geocoder = {
 			return false;
 		});
 
+		// Add a marker when the map is clicked
 		google.maps.event.addListener(Geocoder.settings.map, "click", function(e) {
 			Geocoder.addMarker(e.latLng);
 
@@ -99,17 +113,23 @@ var Geocoder = {
 		});
 	},
 
+	/**
+	 * Add a marker to the map
+	 * @param LatLng
+	 */
 	addMarker: function(location) {
 		var Geocoder = this;
 
 		Geocoder.deleteMarkers();
 
+		// Create the marker
 		var marker = new google.maps.Marker({
 			position: location,
 			map: Geocoder.settings.map,
 			draggable: true
 		});
 
+		// Update the marker when dragged
 		google.maps.event.addListener(marker, "dragend", function(e) {
 			Geocoder.markerChanged(e.latLng);
 		});
@@ -119,6 +139,10 @@ var Geocoder = {
 		Geocoder.markerChanged(location);
 	},
 
+	/**
+	 * Update the global latitude and longitude values
+	 * @param LatLng
+	 */
 	markerChanged: function(location) {
 		Geocoder.settings.latlng = location;
 
@@ -126,6 +150,9 @@ var Geocoder = {
 		$("#longitude").val(Geocoder.settings.latlng.lng());
 	},
 
+	/**
+	 * Delete all the markers on the map
+	 */
 	deleteMarkers: function() {
 		if (Geocoder.settings.markers) {
 			for (i in Geocoder.settings.markers) {
@@ -137,9 +164,11 @@ var Geocoder = {
 };
 
 $(document).ready(function() {
+
+	// Let's get this thing started!
 	Geocoder.init();
 
 	$("#toggle_info").click(function() {
-        $("#info_panel").toggle();
+        $("#info_panel").toggle("fast");
     });
 });
