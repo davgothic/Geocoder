@@ -7,21 +7,21 @@
 	<link href="media/styles/style.css" rel="stylesheet">
 </head>
 <body>
-	<div id="locate_panel">
+	<div id="locate-panel">
 		<form method="post">
-			<div id="left_column">
+			<div id="left-column">
 				<input type="text" name="input" id="address" value="Address">
 				<input type="submit" value="Search" id="search">
 			</div>
-			<div id="right_column">
+			<div id="right-column">
 				<label for="latitude">Latitude:</label>
-				<input type="text" name="latitude" readonly="readonly" value="" id="latitude"><br>
+				<input type="text" name="latitude" readonly="readonly" value="" id="latitude">
 				<label for="longitude">Longitude:</label>
 				<input type="text" name="longitude" readonly="readonly" value="" id="longitude">
 			</div>
 		</form>
 		<div id="info">
-			<div id="info_panel">
+			<div id="info-panel">
 				<h2>Geocoder</h2> <span>- A Google Maps Geocoder Tool.</span>
 				<p>Click on the map to find a latitude and longitude.</p>
 				<p><strong>OR</strong></p>
@@ -29,11 +29,11 @@
 				<hr>
 				<p class="footer">&copy; 2012 David Hancock. <a href="http://davgothic.com/mit-license/">view the license</a> | <a href="http://github.com/davgothic/Geocoder">grab the source</a>.</p>
 			</div>
-			<a id="toggle_info">i</a>
+			<a id="toggle-info">i</a>
 		</div>
 
 	</div>
-	<div id="map_canvas"></div>
+	<div id="map-canvas"></div>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script type="text/javascript" src="media/scripts/geocoder.js"></script>

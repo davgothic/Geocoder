@@ -30,12 +30,12 @@ var Geocoder = {
 		var Geocoder = this;
 
 		Geocoder.settings.options.center = this.settings.latlng;
-		Geocoder.settings.map = new google.maps.Map(document.getElementById("map_canvas"), Geocoder.settings.options);
+		Geocoder.settings.map = new google.maps.Map(document.getElementById("map-canvas"), Geocoder.settings.options);
 
 		// Make the map fit the screen
-		$("#map_canvas").height($("body").height() - $("#locate_panel").height());
+		$("#map-canvas").height($("body").height() - $("#locate-panel").height());
 		$(window).resize(function() {
-			$("#map_canvas").height($("body").height() - $("#locate_panel").height());
+			$("#map-canvas").height($("body").height() - $("#locate-panel").height());
 		});
 
 		// Set the initial latitude and latitude field values
@@ -168,7 +168,7 @@ $(document).ready(function() {
 	// Let's get this thing started!
 	Geocoder.init();
 
-	$("#toggle_info").click(function() {
-        $("#info_panel").toggle("fast");
+	$("#toggle-info").click(function() {
+        $("#info-panel").toggle("fast");
     });
 });
