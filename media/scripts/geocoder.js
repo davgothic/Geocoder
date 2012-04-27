@@ -122,11 +122,28 @@ var Geocoder = {
 
 		Geocoder.deleteMarkers();
 
+		var image = new google.maps.MarkerImage(
+			"media/images/image.png",
+			new google.maps.Size(30, 56),
+			new google.maps.Point(0, 0),
+			new google.maps.Point(15, 56)
+		);
+
+		var shadow = new google.maps.MarkerImage(
+			"media/images/shadow.png",
+			new google.maps.Size(62, 56),
+			new google.maps.Point(0, 0),
+			new google.maps.Point(15, 56)
+		);
+
 		// Create the marker
 		var marker = new google.maps.Marker({
-			position: location,
+			draggable: true,
+			raiseOnDrag: true,
+			icon: image,
+			shadow: shadow,
 			map: Geocoder.settings.map,
-			draggable: true
+			position: location
 		});
 
 		// Update the marker when dragged
